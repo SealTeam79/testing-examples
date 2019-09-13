@@ -19,7 +19,7 @@ public class SeleniumDriver {
             //                                              ".parashar/Downloads" +
             //                                              "/selenium_test_drivers/chromedriver");
 
-            System.setProperty("webdriver.chrome.driver","chromedriver");
+            System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver");
 
             driver = new ChromeDriver();    //can be replaced with HtmlUnitDriver for better performance
 
