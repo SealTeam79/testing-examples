@@ -2,20 +2,23 @@ pipeline {
     agent any
     stages {
         stage('Compile') {
-            snDevOpsStep()
+            
             steps {
+                snDevOpsStep()
                 echo 'Compiling ..'
             }
         }
         stage('Unit Tests') {
-            snDevOpsStep()
+            
             steps {
+                snDevOpsStep()
                 echo 'Running unit tests..'
             }
         }
          stage('Integration Tests') {
-            snDevOpsStep()
+     
             steps {
+                snDevOpsStep()
                 echo 'Running integration tests..'
             }
         }
