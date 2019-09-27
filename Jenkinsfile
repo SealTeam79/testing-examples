@@ -19,6 +19,7 @@ pipeline {
      
             steps {
                 snDevOpsStep()
+                snDevOpsChange()
                 echo 'Running integration tests..'
             }
         }
