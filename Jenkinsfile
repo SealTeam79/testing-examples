@@ -2,16 +2,19 @@ pipeline {
     agent any
     stages {
         stage('Compile') {
+            snDevOpsStep()
             steps {
                 sh 'mvn clean package -DskipTests=true'
             }
         }
         stage('Unit Tests') {
+            snDevOpsStep()
             steps {
                 sh 'mvn surefire:test'
             }
         }
          stage('Integration Tests') {
+            snDevOpsStep()
             steps {
                 sh 'mvn failsafe:integration-test'
             }
@@ -22,7 +25,7 @@ pipeline {
             junit 'target/surefire-reports/TEST-*.xml'
         }
         failure {
-            mail to: 'kiwaczki@gmail.com', subject: 'The Pipeline failed :(', body:'The Pipeline failed :('
+            mail to: 'nitin.parashar@servicenow.com', subject: 'The Pipeline failed :(', body:'The Pipeline failed :('
         }
     }
 }
