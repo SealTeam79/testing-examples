@@ -6,6 +6,7 @@ pipeline {
             steps {
                 snDevOpsStep()
                 echo 'Compiling ..'
+                sleep 10
             }
         }
         stage('Unit Tests') {
@@ -13,6 +14,7 @@ pipeline {
             steps {
                 snDevOpsStep()
                 echo 'Running unit tests..'
+                sleep 10
             }
         }
          stage('Integration Tests') {
@@ -21,6 +23,7 @@ pipeline {
                 snDevOpsStep()
                 snDevOpsChange()
                 echo 'Running integration tests..'
+                sleep 60
             }
         }
     }
