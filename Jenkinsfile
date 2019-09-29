@@ -23,7 +23,7 @@ pipeline {
                 snDevOpsStep()
                 snDevOpsChange()
                 echo 'Running integration tests..'
-                sleep 45
+                sleep 10
             }
         }
     }
