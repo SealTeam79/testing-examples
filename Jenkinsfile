@@ -16,7 +16,7 @@ pipeline {
                 echo 'log line 8 ..'
             }
         }
-      /*  stage('Unit Tests') {
+       stage('Unit Tests') {
             
             steps {
                 snDevOpsStep()
@@ -32,6 +32,6 @@ pipeline {
                 echo 'Running integration tests..'
                 sleep 10
             }
-        }*/
+        }
     }
 }
