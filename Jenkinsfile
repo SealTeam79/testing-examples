@@ -27,6 +27,8 @@ pipeline {
          stage('Integration Tests') {
      
             steps {
+                echo 'log line 1 ..'
+                echo 'log line 2 ..'
                 snDevOpsStep()
                 snDevOpsChange()
                 echo 'Running integration tests..'
