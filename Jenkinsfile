@@ -31,8 +31,8 @@ pipeline {
                 echo 'log line 2 ..'
                 snDevOpsStep()
                 snDevOpsChange()
+                sh 'mvn failsafe:integration-test'
                 echo 'Running integration tests..'
-                sleep 10
             }
         }
     }
