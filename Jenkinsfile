@@ -23,7 +23,7 @@ pipeline {
                  		//snDevOpsChange()
                  		echo 'Start INT-test1..'
                  		//sh 'mvn failsafe:integration-test'
-                        for i in {1..10} do echo "INT-test1 - $i" done
+                        sh 'for i in {1..10} do echo "INT-test1 - $i" done'
                  		echo 'End INT-test1..'
                		}
             	}
@@ -33,7 +33,7 @@ pipeline {
                  		//snDevOpsChange()
                  		echo 'Start INT-test2..'
                  		//sh 'mvn failsafe:integration-test'
-                        for i in {1..10} do echo "INT-test1 - $i" done
+                        sh 'for i in {1..10} do echo "INT-test1 - $i" done'
                  		echo 'End INT-test2..'             
                		}
             	}
