@@ -32,7 +32,7 @@ pipeline {
                  		snDevOpsStep ()
                  		//snDevOpsChange()
                  		echo 'Start INT-test2..'
-                 		//sh 'mvn failsafe:integration-test'
+                 		//sh 'mvn failsafe:integration-test
                         sh 'for i in {1..10} do echo "INT-test1 - $i" done'
                  		echo 'End INT-test2..'             
                		}
