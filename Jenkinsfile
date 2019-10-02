@@ -21,20 +21,24 @@ pipeline {
                		steps{
                  		snDevOpsStep ()
                  		//snDevOpsChange()
-                 		echo 'Start INT-test1..'
+                 		echo 'Start INT-Test1..'
+                        echo '1-Processing INT-Test1..'
+                        echo '2-Processing INT-Test1..'
+                        echo '3-Processing INT-Test1..'
                  		//sh 'mvn failsafe:integration-test'
-                        sh 'for i in {1..10} do echo "INT-test1 - $i" done'
-                 		echo 'End INT-test1..'
+                 		echo 'End INT-Test1..'
                		}
             	}
             	stage('INT-Test2') {
                		steps{
                  		snDevOpsStep ()
                  		//snDevOpsChange()
-                 		echo 'Start INT-test2..'
+                 		echo 'Start INT-Test2..'
+                        echo '1-Processing INT-Test2..'
+                        echo '2-Processing INT-Test2..'
+                        echo '3-Processing INT-Test2..'
                  		//sh 'mvn failsafe:integration-test
-                        sh 'for i in {1..10} do echo "INT-test1 - $i" done'
-                 		echo 'End INT-test2..'             
+                 		echo 'End INT-Test2..'             
                		}
             	}
          	}
