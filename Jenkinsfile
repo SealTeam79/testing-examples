@@ -4,14 +4,14 @@ pipeline {
         stage('Compile') {
             steps {
             	snDevOpsStep()
-                sh 'mvn clean package -DskipTests=true'
+                //sh 'mvn clean package -DskipTests=true'
                 echo 'Completed compile'
             }
         }
         stage('Unit Tests') {
             steps {
              	snDevOpsStep()
-                sh 'mvn surefire:test'
+                //sh 'mvn surefire:test'
                 echo 'Completed unit tests..'
             }
         }
@@ -20,18 +20,20 @@ pipeline {
             	stage('INT-Test1') {
                		steps{
                  		snDevOpsStep ()
-                 		snDevOpsChange()
+                 		//snDevOpsChange()
                  		echo 'Start INT-test1..'
                  		//sh 'mvn failsafe:integration-test'
+                        for i in {1..10} do echo "INT-test1 - $i" done
                  		echo 'End INT-test1..'
                		}
             	}
             	stage('INT-Test2') {
                		steps{
                  		snDevOpsStep ()
-                 		snDevOpsChange()
+                 		//snDevOpsChange()
                  		echo 'Start INT-test2..'
                  		//sh 'mvn failsafe:integration-test'
+                        for i in {1..10} do echo "INT-test1 - $i" done
                  		echo 'End INT-test2..'             
                		}
             	}
