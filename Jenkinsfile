@@ -22,7 +22,7 @@ pipeline {
                  		snDevOpsStep ()
                  		snDevOpsChange()
                  		echo 'Start INT-test1..'
-                 		sh 'mvn failsafe:integration-test'
+                 		//sh 'mvn failsafe:integration-test'
                  		echo 'End INT-test1..'
                		}
             	}
@@ -31,7 +31,7 @@ pipeline {
                  		snDevOpsStep ()
                  		snDevOpsChange()
                  		echo 'Start INT-test2..'
-                 		sh 'mvn failsafe:integration-test'
+                 		//sh 'mvn failsafe:integration-test'
                  		echo 'End INT-test2..'             
                		}
             	}
