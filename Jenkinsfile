@@ -2,20 +2,20 @@ pipeline {
     agent any
     stages {
         stage('Compile') {
-            snDevOpsStep()
             steps {
+            	snDevOpsStep()
                 sh 'mvn clean package -DskipTests=true'
                 echo 'Completed compile'
             }
         }
         stage('Unit Tests') {
-            snDevOpsStep()
             steps {
+             	snDevOpsStep()
                 sh 'mvn surefire:test'
                 echo 'Completed unit tests..'
             }
         }
-         stage('Integration Tests') {
+        stage('Integration Tests') {
             parallel {
             	stage('INT-Test1') {
                		steps{
@@ -43,7 +43,7 @@ pipeline {
             junit 'target/surefire-reports/TEST-*.xml'
         }
         failure {
-            mail to: 'nitin.parashar@servicenow.com', subject: 'The Pipeline failed :(', body:'The Pipeline failed :('
+            mail to: 'nitin.parashar@servicenow.com', subject: 'The Pipeline failed :(', body:'The Pipeline failed :)'
         }
     }
 }
