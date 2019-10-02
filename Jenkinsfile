@@ -2,38 +2,48 @@ pipeline {
     agent any
     stages {
         stage('Compile') {
-            
+            snDevOpsStep()
             steps {
-                snDevOpsStep()
-                echo 'log line 1 ..'
-                echo 'log line 2 ..'
-                echo 'log line 3 ..'
-                echo 'log line 4 ..'
-                echo 'log line 5 ..'
-                echo 'log line 6 ..'
-                echo 'log line 7 ..'
-                sleep 10
-                echo 'log line 8 ..'
+                sh 'mvn clean package -DskipTests=true'
+                echo 'Completed compile'
             }
         }
-       stage('Unit Tests') {
-            
+        stage('Unit Tests') {
+            snDevOpsStep()
             steps {
-                snDevOpsStep()
-                echo 'Running unit tests..'
-                sleep 10
+                sh 'mvn surefire:test'
+                echo 'Completed unit tests..'
             }
         }
          stage('Integration Tests') {
-     
-            steps {
-                echo 'log line 1 ..'
-                echo 'log line 2 ..'
-                snDevOpsStep()
-                snDevOpsChange()
-                sh 'mvn failsafe:integration-test'
-                echo 'Running integration tests..'
-            }
+            parallel {
+            	stage('INT-Test1') {
+               		steps{
+                 		snDevOpsStep ()
+                 		snDevOpsChange()
+                 		echo 'Start INT-test1..'
+                 		sh 'mvn failsafe:integration-test'
+                 		echo 'End INT-test1..'
+               		}
+            	}
+            	stage('INT-Test2') {
+               		steps{
+                 		snDevOpsStep ()
+                 		snDevOpsChange()
+                 		echo 'Start INT-test2..'
+                 		sh 'mvn failsafe:integration-test'
+                 		echo 'End INT-test2..'             
+               		}
+            	}
+         	}
+        }
+    }
+    post {
+        always {
+            junit 'target/surefire-reports/TEST-*.xml'
+        }
+        failure {
+            mail to: 'nitin.parashar@servicenow.com', subject: 'The Pipeline failed :(', body:'The Pipeline failed :('
         }
     }
 }
