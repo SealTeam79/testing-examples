@@ -5,7 +5,7 @@ pipeline {
             steps {
             	snDevOpsStep()
                 //snDevOpsChange()
-                sh 'mvn clean package -DskipTests=true'
+                //sh 'mvn clean package -DskipTests=true'
                 echo 'Completed compile'
             }
         }
@@ -13,7 +13,7 @@ pipeline {
             steps {
              	snDevOpsStep()
                 //snDevOpsChange()
-                sh 'mvn surefire:test'
+               // sh 'mvn surefire:test'
                 echo 'Completed unit tests..'
             }
         }
