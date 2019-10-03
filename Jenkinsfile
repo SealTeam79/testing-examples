@@ -4,7 +4,7 @@ pipeline {
         stage('Compile') {
             steps {
             	snDevOpsStep()
-                //snDevOpsChange()
+                snDevOpsChange()
                 sh 'mvn clean package -DskipTests=true'
                 echo 'Completed compile'
             }
