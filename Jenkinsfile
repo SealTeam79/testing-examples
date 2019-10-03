@@ -4,6 +4,7 @@ pipeline {
         stage('Compile') {
             steps {
             	snDevOpsStep()
+                snDevOpsChange()
                 sh 'mvn clean package -DskipTests=true'
                 echo 'Completed compile'
             }
@@ -11,7 +12,8 @@ pipeline {
         stage('Unit Tests') {
             steps {
              	snDevOpsStep()
-                //sh 'mvn surefire:test'
+                snDevOpsChange()
+                sh 'mvn surefire:test'
                 echo 'Completed unit tests..'
             }
         }
@@ -44,12 +46,12 @@ pipeline {
          	}
         }
     }
-   /* post {
+    post {
         always {
             junit 'target/surefire-reports/TEST-*.xml'
         }
         failure {
             mail to: 'nitin.parashar@servicenow.com', subject: 'The Pipeline failed :(', body:'The Pipeline failed :)'
         }
-    }*/
+    }
 }
