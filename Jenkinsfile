@@ -39,7 +39,7 @@ pipeline {
                         echo '1-Processing INT-Test2..'
                         echo '2-Processing INT-Test2..'
                         echo '3-Processing INT-Test2..'
-                 		sh 'mvn failsafe:integration-test
+                 		sh 'mvn failsafe:integration-test'
                  		echo 'End INT-Test2..'             
                		}
             	}
