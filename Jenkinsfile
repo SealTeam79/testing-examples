@@ -12,7 +12,7 @@ pipeline {
         stage('Unit Tests') {
             steps {
              	snDevOpsStep()
-                snDevOpsChange()
+                //snDevOpsChange()
                 sh 'mvn surefire:test'
                 echo 'Completed unit tests..'
             }
@@ -22,7 +22,7 @@ pipeline {
             	stage('INT-Test1') {
                		steps{
                  		snDevOpsStep ()
-                 		//snDevOpsChange()
+                 		snDevOpsChange()
                  		echo 'Start INT-Test1..'
                  		//sh 'mvn failsafe:integration-test'
                         echo '1-Processing INT-Test1..'
