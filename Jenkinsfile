@@ -4,7 +4,7 @@ pipeline {
         stage('Compile') {
             steps {
             	snDevOpsStep()
-                //sh 'mvn clean package -DskipTests=true'
+                sh 'mvn clean package -DskipTests=true'
                 echo 'Completed compile'
             }
         }
@@ -20,24 +20,24 @@ pipeline {
             	stage('INT-Test1') {
                		steps{
                  		snDevOpsStep ()
-                 		//snDevOpsChange()
+                 		snDevOpsChange()
                  		echo 'Start INT-Test1..'
                         echo '1-Processing INT-Test1..'
                         echo '2-Processing INT-Test1..'
                         echo '3-Processing INT-Test1..'
-                 		//sh 'mvn failsafe:integration-test'
+                 		sh 'mvn failsafe:integration-test'
                  		echo 'End INT-Test1..'
                		}
             	}
             	stage('INT-Test2') {
                		steps{
                  		snDevOpsStep ()
-                 		//snDevOpsChange()
+                 		snDevOpsChange()
                  		echo 'Start INT-Test2..'
                         echo '1-Processing INT-Test2..'
                         echo '2-Processing INT-Test2..'
                         echo '3-Processing INT-Test2..'
-                 		//sh 'mvn failsafe:integration-test
+                 		sh 'mvn failsafe:integration-test
                  		echo 'End INT-Test2..'             
                		}
             	}
