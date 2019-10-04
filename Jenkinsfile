@@ -22,7 +22,7 @@ pipeline {
             	stage('INT-Test1') {
                		steps{
                  		snDevOpsStep ()
-                 		snDevOpsChange()
+                 		//snDevOpsChange()
                  		echo 'Start INT-Test1..'
                  		//sh 'mvn failsafe:integration-test'
                         echo '1-Processing INT-Test1..'
