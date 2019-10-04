@@ -46,12 +46,12 @@ pipeline {
          	}
         }
     }
-   post {
+  /* post {
         always {
             junit 'target/surefire-reports/TEST-*.xml'
         }
         failure {
             mail to: 'nitin.parashar@servicenow.com', subject: 'The Pipeline failed :(', body:'The Pipeline failed :)'
         }
-    }
+    }*/
 }
