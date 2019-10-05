@@ -5,7 +5,8 @@ pipeline {
             steps {
             	snDevOpsStep()
             	snDevOpsChange()
-                echo 'Compiling ....'
+                echo 'in Compiling123 ...'
+                echo 'in Compiling456 ...'
                 echo 'Completed compile'
             }
         }
