@@ -9,11 +9,6 @@ pipeline {
             }
         }
         stage('Unit Tests') {
-            steps {
-             	snDevOpsStep()
-             	echo 'running unit tests ....'
-                echo 'Completed basic unit tests..'
-            }
             stages {
                 stage("Unit Tests - cucumber") {
                     steps {
@@ -25,6 +20,22 @@ pipeline {
                     steps {
                         echo 'running selenium unit tests ....'
                         echo 'Completed selenium unit tests..'
+                    }
+                }
+                stages {
+                    stage("Unit Test - base1"){
+                        steps {
+                            snDevOpsStep()
+                            echo 'running base1 unit tests ....'
+                            echo 'Completed base1 unit tests..'
+                        }
+                    }
+                    stage("Unit Test - base2"){
+						steps {
+                            snDevOpsStep()
+                            echo 'running base2 unit tests ....'
+                            echo 'Completed base2 unit tests..'
+                        }
                     }
                 }
             }
