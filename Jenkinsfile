@@ -4,54 +4,52 @@ pipeline {
         stage('Compile') {
             steps {
             	snDevOpsStep()
-                //snDevOpsChange()
-                //sh 'mvn clean package -DskipTests=true'
+                echo 'Compiling ....'
                 echo 'Completed compile'
             }
         }
         stage('Unit Tests') {
             steps {
              	snDevOpsStep()
-                //snDevOpsChange()
-                //sh 'mvn surefire:test'
-                echo 'Completed unit tests..'
+             	echo 'running unit tests ....'
+                echo 'Completed basic unit tests..'
+            }
+            stages {
+                stage("Unit Tests - cucumber") {
+                    steps {
+                         echo 'running cucumber unit tests ....'
+                         echo 'Completed cucumber unit tests..'
+                    }
+                }
+                stage("Unit Tests - selenium") {
+                    steps {
+                        echo 'running selenium unit tests ....'
+                        echo 'Completed selenium unit tests..'
+                    }
+                }
             }
         }
         stage('Integration Tests') {
             parallel {
-            	stage('INT-Test1') {
+            	stage('INT-Test-basic') {
                		steps{
                  		snDevOpsStep ()
-                 		//snDevOpsChange()
-                 		echo 'Start INT-Test1..'
-                 		//sh 'mvn failsafe:integration-test'
-                        echo '1-Processing INT-Test1..'
-                        echo '2-Processing INT-Test1..'
-                        echo '3-Processing INT-Test1..'
-                 		echo 'End INT-Test1 ------------- test1 ----------- End INT-Test1..'
+                 		echo 'Start Basic Integration tests..'
+                        echo '1-Running basic Integration tests..'
+                        echo '2-Running basic Integration tests..'
+                 		echo 'End Basic Integration tests'
                		}
             	}
-            	stage('INT-Test2') {
+            	stage('INT-Test-advanced') {
                		steps{
                  		snDevOpsStep ()
-                 		//snDevOpsChange()
-                 		echo 'Start INT-Test2..'
-                 		//sh 'mvn failsafe:integration-test'
-                        echo '1-Processing INT-Test2..'
-                        echo '2-Processing INT-Test2..'
-                        echo '3-Processing INT-Test2..'
-                 		echo 'End INT-Test2 -------------- test2 ---------- End INT-Test2 '             
+                 		echo 'Start Advanced Integration tests..'
+                        echo '1-Running Advanced Integration tests..'
+                        echo '2-Running Advanced Integration tests..'
+                        echo 'End Advanced Integration tests'
                		}
             	}
          	}
         }
     }
-  /* post {
-        always {
-            junit 'target/surefire-reports/TEST-*.xml'
-        }
-        failure {
-            mail to: 'nitin.parashar@servicenow.com', subject: 'The Pipeline failed :(', body:'The Pipeline failed :)'
-        }
-    }*/
 }
