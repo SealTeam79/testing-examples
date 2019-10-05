@@ -4,6 +4,7 @@ pipeline {
         stage('Compile') {
             steps {
             	snDevOpsStep()
+            	snDevOpsChange()
                 echo 'Compiling ....'
                 echo 'Completed compile'
             }
@@ -25,6 +26,7 @@ pipeline {
                 stage("Unit Test - base1"){
                     steps {
                         snDevOpsStep()
+                        snDevOpsChange()
                         echo 'running base1 unit tests ....'
                         echo 'Completed base1 unit tests..'
                     }
@@ -36,6 +38,7 @@ pipeline {
             	stage('INT-Test-basic') {
                		steps{
                  		snDevOpsStep ()
+                 		snDevOpsChange()
                  		echo 'Start Basic Integration tests..'
                         echo '1-Running basic Integration tests..'
                         echo '2-Running basic Integration tests..'
