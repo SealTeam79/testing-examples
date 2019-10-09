@@ -39,6 +39,8 @@ pipeline {
             	stage('INT-Test-basic') {
                		steps{
                  		snDevOpsStep ()
+                        snDevOpsChange()
+                        sh 'mvn111 failsafe:integration-test'
                  		echo 'Start Basic Integration tests..'
                         echo '1-Running basic Integration tests..'
                         echo '2-Running basic Integration tests..'
@@ -48,8 +50,6 @@ pipeline {
             	stage('INT-Test-advanced') {
                		steps{
                  		snDevOpsStep ()
-                        snDevOpsChange()
-                        sh 'mvn111 failsafe:integration-test'
                  		echo 'Start Advanced Integration tests..'
                         echo '1-Running Advanced Integration tests..'
                         echo '2-Running Advanced Integration tests..'
